@@ -13,10 +13,7 @@ import 'components/choose_api/choose_translation_api.dart';
 class HomePageProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //return HomePage();
-   return Scaffold(
-     body: LoadingWithText(text: 'text',),
-   );
+    return HomePage();
   }
 }
 
@@ -40,11 +37,10 @@ class _HomePageState extends State<HomePage> {
         Provider.of<TranslateBloc>(context).add(ReplaceTranslationApi(selectedApi: previousApi));
         return generateHomeView();
       } else if (state is TranslationApiLoading) {
-        return CircularProgressIndicator();
+        return LoadingWithText(text: 'Loading api data');
       } else if (state is TranslationApiLoaded) {
         if(previousApi.runtimeType != state.props[0].runtimeType) {
           previousApi=state.props[0];
-          //Provider.of<UserLanguagesBloc>(context).add(CompareLanguagesOnSwitch(supportedLanguages: state.props[1]));
           Provider.of<TranslateBloc>(context).add(ReplaceTranslationApi(selectedApi: state.props[0]));
         }
         return generateHomeView();
@@ -58,6 +54,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget generateHomeView() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ChooseTranslationApi(),
             SelectLanguages(),

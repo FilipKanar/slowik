@@ -5,7 +5,9 @@ class ChooseLanguageDialog {
   Future languageSelectDialog(BuildContext context) async {
     return await showDialog(
       context: context,
-      child: AlertDialog(content: _languagesList(context)),
+      builder: (context) {
+        return AlertDialog(content: _languagesList(context));
+      },
     );
   }
 

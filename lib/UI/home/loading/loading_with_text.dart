@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingWithText extends StatelessWidget {
 
@@ -13,12 +14,10 @@ class LoadingWithText extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularProgressIndicator(
-              strokeWidth: 16,
-            ),
+            SpinKitPouringHourglass(color: Colors.green),
             Padding(
               padding: const EdgeInsets.all(3.5),
-              child: Text(text),
+              child: Text(text, style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),),
             ),
           ],
         ),
