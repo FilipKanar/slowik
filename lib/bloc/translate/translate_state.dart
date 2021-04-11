@@ -16,10 +16,11 @@ class TranslateLoading extends TranslateState {
 }
 
 class TranslateLoaded extends TranslateState {
-  TranslateLoaded({@required this.translatedString, @required this.userInputString});
+  TranslateLoaded({@required this.translatedString, @required this.userInputString, this.translations});
   final String userInputString;
   final String translatedString;
+  final List<String> translations;
   @override
-  List<Object> get props => [userInputString,translatedString];
+  List<Object> get props => [userInputString,translatedString, translations];
 }
 

@@ -14,10 +14,10 @@ class LoadingWithText extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SpinKitPouringHourglass(color: Colors.green),
+            SpinKitPouringHourglass(color: Theme.of(context).primaryColorDark),
             Padding(
               padding: const EdgeInsets.all(3.5),
-              child: Text(text, style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),),
+              child: Text(text, style: TextStyle(color: Theme.of(context).primaryColorDark, fontWeight: FontWeight.bold),),
             ),
           ],
         ),

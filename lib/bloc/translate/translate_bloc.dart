@@ -35,7 +35,7 @@ class TranslateBloc extends Bloc<TranslateEvent, TranslateState> {
       languages.removeWhere((element) => element == null);
       await getTranslations(event.props[0], event.props[2], languages);
       yield TranslateLoaded(
-          userInputString: userInputString, translatedString: output);
+          userInputString: event.props[0], translatedString: output, translations: middleTranslations);
     }
   }
 

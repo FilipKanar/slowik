@@ -82,4 +82,5 @@ class GoogleTranslate extends TranslateAbstract {
     });
     return returnMap;
   }
+
 }

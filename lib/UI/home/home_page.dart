@@ -24,6 +24,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   TranslateAbstract previousApi;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(body: buildApiBlocBuilder()));
@@ -33,15 +34,17 @@ class _HomePageState extends State<HomePage> {
     return BlocBuilder<TranslationApiBloc, TranslationApiState>(
         builder: (context, state) {
       if (state is TranslationApiInitial) {
-        previousApi=state.supportedApi;
-        Provider.of<TranslateBloc>(context).add(ReplaceTranslationApi(selectedApi: previousApi));
+        previousApi = state.supportedApi;
+        Provider.of<TranslateBloc>(context)
+            .add(ReplaceTranslationApi(selectedApi: previousApi));
         return generateHomeView();
       } else if (state is TranslationApiLoading) {
         return LoadingWithText(text: 'Loading api data');
       } else if (state is TranslationApiLoaded) {
-        if(previousApi.runtimeType != state.props[0].runtimeType) {
-          previousApi=state.props[0];
-          Provider.of<TranslateBloc>(context).add(ReplaceTranslationApi(selectedApi: state.props[0]));
+        if (previousApi.runtimeType != state.props[0].runtimeType) {
+          previousApi = state.props[0];
+          Provider.of<TranslateBloc>(context)
+              .add(ReplaceTranslationApi(selectedApi: state.props[0]));
         }
         return generateHomeView();
       } else {
@@ -53,13 +56,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget generateHomeView() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ChooseTranslationApi(),
-            SelectLanguages(),
-            TranslateText(),
-          ],
-        );
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ChooseTranslationApi(),
+          SelectLanguages(),
+          TranslateText(),
+        ],
+      ),
+    );
   }
 }

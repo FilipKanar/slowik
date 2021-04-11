@@ -13,6 +13,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => TranslationApiBloc()),
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.green,
+          primarySwatch: Colors.brown,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: HomePageProvider(),
