@@ -33,9 +33,13 @@ class TranslateBloc extends Bloc<TranslateEvent, TranslateState> {
       List<Map<String,dynamic>> languages = [];
       languages.addAll(event.languages);
       languages.removeWhere((element) => element == null);
-      await getTranslations(event.props[0], event.props[2], languages);
-      yield TranslateLoaded(
-          userInputString: event.props[0], translatedString: output, translations: middleTranslations);
+      try{
+        await getTranslations(event.props[0], event.props[2], languages);
+        yield TranslateLoaded(
+            userInputString: event.props[0], translatedString: output, translations: middleTranslations);
+      }catch(e) {
+        yield TranslateLoadingError(errorMessage: 'Wystapil nieznany blad podczas tlumaczenia');
+      }
     }
   }
 

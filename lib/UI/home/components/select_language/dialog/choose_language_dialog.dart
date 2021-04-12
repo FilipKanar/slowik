@@ -6,7 +6,7 @@ class ChooseLanguageDialog {
     return await showDialog(
       context: context,
       builder: (context) {
-        return AlertDialog(content: _languagesList(context));
+        return AlertDialog(content: _languagesList(context), insetPadding: EdgeInsets.all(17),backgroundColor: Colors.transparent,);
       },
     );
   }

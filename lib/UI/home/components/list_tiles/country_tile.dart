@@ -22,8 +22,8 @@ class CountryTile extends StatelessWidget {
     return languageMap == null
         ? AddButton(text: '${(tileIndex+1).toString()}.',callback: () {replaceLanguage(context);},)
         : ElevatedButton(
-            style: TextButton.styleFrom(
-              backgroundColor: Colors.brown[100],
+            style: ElevatedButton.styleFrom(
+              primary: Colors.brown[100],
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(17))),
             ),
             onPressed: () {

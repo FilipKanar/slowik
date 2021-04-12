@@ -62,7 +62,7 @@ class _SelectLanguagesState extends State<SelectLanguages> {
             gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
               mainAxisSpacing: 3,
               crossAxisCount: 3,
-              childAspectRatio: 2.3,
+              childAspectRatio: 1.8,
             ),
             itemBuilder: (context, index) {
               return Padding(

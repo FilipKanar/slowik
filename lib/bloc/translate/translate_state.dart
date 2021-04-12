@@ -13,6 +13,8 @@ class TranslateInitial extends TranslateState {
 }
 
 class TranslateLoading extends TranslateState {
+  final String infoMessage;
+  TranslateLoading({this.infoMessage});
 }
 
 class TranslateLoaded extends TranslateState {
@@ -22,5 +24,14 @@ class TranslateLoaded extends TranslateState {
   final List<String> translations;
   @override
   List<Object> get props => [userInputString,translatedString, translations];
+}
+
+
+
+class TranslateLoadingError extends TranslateState {
+  final String errorMessage;
+  TranslateLoadingError({@required this.errorMessage});
+  @override
+  List<Object> get props => [errorMessage];
 }
 

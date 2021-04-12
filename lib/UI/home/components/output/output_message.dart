@@ -25,9 +25,7 @@ class OutputMessage extends StatelessWidget {
         return buildOutputMessage(
             state.props[0], state.props[1], state.props[2]);
       } else {
-        return Center(
-          child: Text('sth wrong'),
-        );
+        return Container();
       }
     });
   }

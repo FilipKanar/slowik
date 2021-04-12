@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:slowik/UI/home/components/info/info_message.dart';
 import 'package:slowik/UI/home/components/output/output_message.dart';
@@ -57,11 +58,21 @@ class _TranslateFormState extends State<TranslateForm> {
               },
             ),
             Container(width: double.infinity,child: translateButton()),
+            errorMessageBuilder(),
             translatedText(),
           ],
         ),
       ),
     );
+  }
+
+  Widget errorMessageBuilder(){
+    return BlocBuilder<TranslateBloc, TranslateState>(
+        builder: (context, state) {
+          if (state is TranslateLoadingError) {
+            return InfoMessage(text: state.props[0], textSize: 17, fontWeight: FontWeight.bold,);
+          } else return Container();
+        });
   }
 
   Widget translateButton() {
